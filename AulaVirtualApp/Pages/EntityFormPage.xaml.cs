@@ -151,7 +151,7 @@ public partial class EntityFormPage : ContentPage
             Style = (Style)Application.Current!.Resources["WarningLabel"],
             Text = "Para poder guardar, primero debes crear al menos un registro de: " +
                    string.Join(", ", faltantes) +
-                   ".\nRegresa al panel de administrador y crealos en la seccion correspondiente."
+                   ".\nRegresa al panel de administrador y créalos en la sección correspondiente."
         };
 
         FieldsContainer.Children.Insert(0, aviso);

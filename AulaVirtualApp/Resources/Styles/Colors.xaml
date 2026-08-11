@@ -11,9 +11,10 @@
     <Color x:Key="PrimaryLight">#E7EFE8</Color>
     <Color x:Key="Secondary">#58A66B</Color>
 
-    <Color x:Key="Background">#D9D0C1</Color>
+    <!-- Crema muy claro: mantiene el tono calido del beige sin oscurecer la pantalla -->
+    <Color x:Key="Background">#F5F2EC</Color>
     <Color x:Key="Surface">#FFFFFF</Color>
-    <Color x:Key="BorderSoft">#C4B9A8</Color>
+    <Color x:Key="BorderSoft">#D9D0C1</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

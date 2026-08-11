@@ -17,11 +17,11 @@
                     <Label Text="Apellido" Style="{StaticResource FieldLabel}" />
                     <Entry x:Name="ApellidoEntry" />
 
-                    <Label Text="Carne" Style="{StaticResource FieldLabel}" />
-                    <Entry x:Name="CarneEntry" Placeholder="ej. 2026001" />
+                    <Label Text="Carné" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="CarneEntry" Placeholder="ej. 202600101" />
 
-                    <Label Text="Institucion" Style="{StaticResource FieldLabel}" />
-                    <Picker x:Name="InstitucionPicker" Title="Selecciona institucion" />
+                    <Label Text="Institución" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="InstitucionPicker" Title="Selecciona institución" />
 
                     <Label Text="Carrera" Style="{StaticResource FieldLabel}" />
                     <Picker x:Name="CarreraPicker" Title="Selecciona carrera" />
@@ -31,12 +31,12 @@
             <Frame Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Credenciales de acceso" Style="{StaticResource CardTitle}" />
-                    <Label Text="Se crean en el modulo de Login." Style="{StaticResource MutedLabel}" Margin="0,-6,0,0" />
+                    <Label Text="Se crean en el módulo de Login." Style="{StaticResource MutedLabel}" Margin="0,-6,0,0" />
 
                     <Label Text="Usuario" Style="{StaticResource FieldLabel}" />
                     <Entry x:Name="UsuarioEntry" Placeholder="ej. alopez" />
 
-                    <Label Text="Contrasena temporal" Style="{StaticResource FieldLabel}" />
+                    <Label Text="Contraseña temporal" Style="{StaticResource FieldLabel}" />
                     <Entry x:Name="ContrasenaEntry" IsPassword="True" Placeholder="ej. Estudiante123!" />
                 </VerticalStackLayout>
             </Frame>

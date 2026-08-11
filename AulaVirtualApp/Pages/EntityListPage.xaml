@@ -21,7 +21,7 @@
                 <CollectionView x:Name="ItemsView" SelectionMode="None">
                     <CollectionView.EmptyView>
                         <VerticalStackLayout Padding="30" VerticalOptions="Center">
-                            <Label Text="No hay registros todavia."
+                            <Label Text="No hay registros todavía."
                                    HorizontalOptions="Center"
                                    TextColor="{StaticResource Gray600}" />
                             <Label Text="Toca '+ Agregar' para crear el primero."

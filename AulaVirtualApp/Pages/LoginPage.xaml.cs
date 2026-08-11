@@ -25,7 +25,7 @@ public partial class LoginPage : ContentPage
 
         if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasena))
         {
-            ErrorLabel.ShowError("Debes ingresar usuario y contrasena.");
+            ErrorLabel.ShowError("Debes ingresar usuario y contraseña.");
             return;
         }
 
@@ -44,7 +44,7 @@ public partial class LoginPage : ContentPage
 
         if (!result.Ok || result.Data is not JsonObject data)
         {
-            ErrorLabel.ShowError(result.ErrorMessage ?? "No se pudo iniciar sesion.");
+            ErrorLabel.ShowError(result.ErrorMessage ?? "No se pudo iniciar sesión.");
             return;
         }
 
@@ -71,11 +71,11 @@ public partial class LoginPage : ContentPage
                 break;
             case "DOCENTE":
                 await Navigation.PushAsync(new RoleHomePage("Panel del Docente",
-                    "El rol de docente se implementara en una siguiente fase del proyecto."));
+                    "El rol de docente se implementará en una siguiente fase del proyecto."));
                 break;
             case "ESTUDIANTE":
                 await Navigation.PushAsync(new RoleHomePage("Panel del Estudiante",
-                    "El rol de estudiante se implementara en una siguiente fase del proyecto."));
+                    "El rol de estudiante se implementará en una siguiente fase del proyecto."));
                 break;
             default:
                 ErrorLabel.ShowError($"Rol '{SessionService.Rol}' no reconocido.");

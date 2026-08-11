@@ -42,7 +42,7 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
@@ -79,7 +79,7 @@ public static class EntityCatalog
         DisplayTitle = o => $"Semestre {o.GetStr("numero")}",
         Fields = new()
         {
-            new FieldConfig { Key = "numero", Label = "Numero de semestre", Type = FieldType.Number },
+            new FieldConfig { Key = "numero", Label = "Número de semestre", Type = FieldType.Number },
         }
     };
 
@@ -118,11 +118,11 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
-            new FieldConfig { Key = "codigo", Label = "Codigo del curso", Type = FieldType.Text },
+            new FieldConfig { Key = "codigo", Label = "Código del curso", Type = FieldType.Text },
             new FieldConfig { Key = "nombre", Label = "Nombre del curso", Type = FieldType.Text },
         }
     };
@@ -154,7 +154,7 @@ public static class EntityCatalog
 
     public static EntityConfig Docentes() => new()
     {
-        Title = "Catedraticos",
+        Title = "Catedráticos",
         Endpoint = "docentes/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_docente",
@@ -164,7 +164,7 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
@@ -185,18 +185,18 @@ public static class EntityCatalog
         ApiTarget = ApiTarget.Aula,
         IdField = "id_estudiante",
         DisplayTitle = o => $"{o.GetStr("nombre")} {o.GetStr("apellido")}",
-        DisplaySubtitle = o => $"Carne: {o.GetStr("carne")}",
+        DisplaySubtitle = o => $"Carné: {o.GetStr("carne")}",
         Fields = new()
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
             new FieldConfig { Key = "nombre", Label = "Nombre", Type = FieldType.Text },
             new FieldConfig { Key = "apellido", Label = "Apellido", Type = FieldType.Text },
-            new FieldConfig { Key = "carne", Label = "Carne", Type = FieldType.Text },
+            new FieldConfig { Key = "carne", Label = "Carné", Type = FieldType.Text },
             new FieldConfig
             {
                 Key = "carrera", Label = "Carrera", Type = FieldType.Picker,
@@ -213,7 +213,7 @@ public static class EntityCatalog
 
     public static EntityConfig Ciclos() => new()
     {
-        Title = "Ciclos academicos",
+        Title = "Ciclos académicos",
         Endpoint = "ciclos/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_ciclo",
@@ -223,7 +223,7 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
@@ -235,7 +235,7 @@ public static class EntityCatalog
 
     public static EntityConfig Aulas() => new()
     {
-        Title = "Aulas fisicas",
+        Title = "Aulas físicas",
         Endpoint = "aulas/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_aula",
@@ -245,18 +245,18 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
-            new FieldConfig { Key = "nombre", Label = "Nombre / codigo del aula", Type = FieldType.Text },
+            new FieldConfig { Key = "nombre", Label = "Nombre / código del aula", Type = FieldType.Text },
             new FieldConfig { Key = "capacidad", Label = "Capacidad", Type = FieldType.Number, Required = false },
         }
     };
 
     public static EntityConfig Modulos() => new()
     {
-        Title = "Modulos horarios",
+        Title = "Módulos horarios",
         Endpoint = "modulos/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_modulo",
@@ -266,11 +266,11 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "institucion", Label = "Institucion", Type = FieldType.Picker,
+                Key = "institucion", Label = "Institución", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "instituciones/", ValueField = "id_institucion",
                 OptionLabel = o => o.GetStr("nombre")
             },
-            new FieldConfig { Key = "nombre", Label = "Nombre del modulo", Type = FieldType.Text },
+            new FieldConfig { Key = "nombre", Label = "Nombre del módulo", Type = FieldType.Text },
             new FieldConfig { Key = "hora_inicio", Label = "Hora de inicio (HH:MM)", Type = FieldType.Time },
             new FieldConfig { Key = "hora_fin", Label = "Hora de fin (HH:MM)", Type = FieldType.Time },
         }
@@ -288,7 +288,7 @@ public static class EntityCatalog
         {
             new FieldConfig
             {
-                Key = "modulo", Label = "Modulo", Type = FieldType.Picker,
+                Key = "modulo", Label = "Módulo", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "modulos/", ValueField = "id_modulo",
                 OptionLabel = o => o.GetStr("nombre")
             },
@@ -300,11 +300,11 @@ public static class EntityCatalog
             },
             new FieldConfig
             {
-                Key = "dia", Label = "Dia", Type = FieldType.StaticChoice,
+                Key = "dia", Label = "Día", Type = FieldType.StaticChoice,
                 StaticOptions = new()
                 {
-                    ("LUNES", "Lunes"), ("MARTES", "Martes"), ("MIERCOLES", "Miercoles"),
-                    ("JUEVES", "Jueves"), ("VIERNES", "Viernes"), ("SABADO", "Sabado")
+                    ("LUNES", "Lunes"), ("MARTES", "Martes"), ("MIERCOLES", "Miércoles"),
+                    ("JUEVES", "Jueves"), ("VIERNES", "Viernes"), ("SABADO", "Sábado")
                 }
             },
         }
@@ -312,7 +312,7 @@ public static class EntityCatalog
 
     public static EntityConfig Secciones() => new()
     {
-        Title = "Asignar catedratico a curso",
+        Title = "Asignar catedrático a curso",
         Endpoint = "secciones/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_seccion",
@@ -328,13 +328,13 @@ public static class EntityCatalog
             },
             new FieldConfig
             {
-                Key = "ciclo", Label = "Ciclo academico", Type = FieldType.Picker,
+                Key = "ciclo", Label = "Ciclo académico", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "ciclos/", ValueField = "id_ciclo",
                 OptionLabel = o => o.GetStr("nombre")
             },
             new FieldConfig
             {
-                Key = "docente", Label = "Catedratico", Type = FieldType.Picker,
+                Key = "docente", Label = "Catedrático", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "docentes/", ValueField = "id_docente",
                 OptionLabel = o => $"{o.GetStr("nombre")} {o.GetStr("apellido")}"
             },
@@ -365,7 +365,7 @@ public static class EntityCatalog
             },
             new FieldConfig
             {
-                Key = "seccion", Label = "Seccion (curso asignado a catedratico)", Type = FieldType.Picker,
+                Key = "seccion", Label = "Sección (curso asignado a catedrático)", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "secciones/", ValueField = "id_seccion",
                 OptionLabel = o => $"{o.GetStr("curso_nombre")} - {o.GetStr("docente_nombre")} ({o.GetStr("ciclo_nombre")})"
             },

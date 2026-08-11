@@ -56,13 +56,13 @@ public partial class CrearDocentePage : ContentPage
         if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) ||
             string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(contrasena))
         {
-            ErrorLabel.ShowError("Completa nombre, apellido, usuario y contrasena.");
+            ErrorLabel.ShowError("Completa nombre, apellido, usuario y contraseña.");
             return;
         }
 
         if (InstitucionPicker.SelectedIndex < 0)
         {
-            ErrorLabel.ShowError("Selecciona una institucion.");
+            ErrorLabel.ShowError("Selecciona una institución.");
             return;
         }
 
@@ -110,13 +110,13 @@ public partial class CrearDocentePage : ContentPage
             // Intentamos revertir el usuario de login para no dejar cuentas huerfanas.
             await ApiClient.DeleteAsync(ApiTarget.Login, $"usuarios/{idUsuarioCreado}/");
 
-            ErrorLabel.ShowError("El usuario se creo pero no se pudo registrar el catedratico en Aula.\n" +
+            ErrorLabel.ShowError("El usuario se creó pero no se pudo registrar el catedrático en Aula.\n" +
                          (docenteResult.ErrorMessage ?? "") +
-                         "\nSe revirtio la creacion del usuario, intenta de nuevo.");
+                         "\nSe revirtió la creación del usuario, intenta de nuevo.");
             return;
         }
 
-        await DisplayAlert("Listo", $"Catedratico '{nombre} {apellido}' creado con usuario '{usuario}'.", "OK");
+        await DisplayAlert("Listo", $"Catedrático '{nombre} {apellido}' creado con usuario '{usuario}'.", "OK");
         await Navigation.PopAsync();
     }
 

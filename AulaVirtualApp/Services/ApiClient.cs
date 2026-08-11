@@ -90,12 +90,12 @@ public static class ApiClient
         catch (TaskCanceledException)
         {
             result.Ok = false;
-            result.ErrorMessage = "Tiempo de espera agotado. Verifica la IP/puerto configurados y que el servidor este corriendo.";
+            result.ErrorMessage = "Tiempo de espera agotado. Verifica la IP/puerto configurados y que el servidor esté corriendo.";
         }
         catch (HttpRequestException ex)
         {
             result.Ok = false;
-            result.ErrorMessage = $"No se pudo conectar con el servidor. Revisa la configuracion de la API.\n({ex.Message})";
+            result.ErrorMessage = $"No se pudo conectar con el servidor. Revisa la configuración de la API.\n({ex.Message})";
         }
         catch (Exception ex)
         {

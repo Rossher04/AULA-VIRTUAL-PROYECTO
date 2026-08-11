@@ -16,7 +16,7 @@
 
             <Frame Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Estructura academica" Style="{StaticResource CardTitle}" />
+                    <Label Text="Estructura académica" Style="{StaticResource CardTitle}" />
                     <Button Text="Facultades" Clicked="OnFacultadesClicked" />
                     <Button Text="Carreras" Clicked="OnCarrerasClicked" />
                     <Button Text="Semestres" Clicked="OnSemestresClicked" />
@@ -29,17 +29,17 @@
             <Frame Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Personas" Style="{StaticResource CardTitle}" />
-                    <Button Text="Catedraticos (crear con usuario)" Clicked="OnDocentesClicked" />
+                    <Button Text="Catedráticos (crear con usuario)" Clicked="OnDocentesClicked" />
                     <Button Text="Alumnos (crear con usuario)" Clicked="OnEstudiantesClicked" />
                 </VerticalStackLayout>
             </Frame>
 
             <Frame Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
-                    <Label Text="Asignacion de docencia" Style="{StaticResource CardTitle}" />
-                    <Label Text="Requiere tener creados antes: pensum (curso asignado a semestre por carrera), ciclo academico y horario."
+                    <Label Text="Asignación de docencia" Style="{StaticResource CardTitle}" />
+                    <Label Text="Requiere tener creados antes: pensum (curso asignado a semestre por carrera), ciclo académico y horario."
                            Style="{StaticResource MutedLabel}" Margin="0,0,0,4" />
-                    <Button Text="Asignar catedratico a curso" Clicked="OnSeccionesClicked" />
+                    <Button Text="Asignar catedrático a curso" Clicked="OnSeccionesClicked" />
                     <Button Text="Asignar alumno a curso" Clicked="OnEstudianteSeccionesClicked" />
                 </VerticalStackLayout>
             </Frame>
@@ -47,17 +47,17 @@
             <Frame Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Datos de apoyo" Style="{StaticResource CardTitle}" />
-                    <Label Text="Requeridos por la asignacion de docencia (ciclo, aula, horario)."
+                    <Label Text="Requeridos por la asignación de docencia (ciclo, aula, horario)."
                            Style="{StaticResource MutedLabel}" Margin="0,0,0,4" />
-                    <Button Text="Ciclos academicos" Clicked="OnCiclosClicked" Style="{StaticResource SecondaryButton}" />
-                    <Button Text="Aulas fisicas" Clicked="OnAulasClicked" Style="{StaticResource SecondaryButton}" />
-                    <Button Text="Modulos horarios" Clicked="OnModulosClicked" Style="{StaticResource SecondaryButton}" />
+                    <Button Text="Ciclos académicos" Clicked="OnCiclosClicked" Style="{StaticResource SecondaryButton}" />
+                    <Button Text="Aulas físicas" Clicked="OnAulasClicked" Style="{StaticResource SecondaryButton}" />
+                    <Button Text="Módulos horarios" Clicked="OnModulosClicked" Style="{StaticResource SecondaryButton}" />
                     <Button Text="Horarios" Clicked="OnHorariosClicked" Style="{StaticResource SecondaryButton}" />
                     <Button Text="Instituciones" Clicked="OnInstitucionesClicked" Style="{StaticResource SecondaryButton}" />
                 </VerticalStackLayout>
             </Frame>
 
-            <Button Text="Cerrar sesion" Clicked="OnLogoutClicked" Style="{StaticResource DangerButton}" Margin="0,4,0,10" />
+            <Button Text="Cerrar sesión" Clicked="OnLogoutClicked" Style="{StaticResource DangerButton}" Margin="0,4,0,10" />
 
         </VerticalStackLayout>
     </ScrollView>

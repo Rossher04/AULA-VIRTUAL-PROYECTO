@@ -11,7 +11,7 @@
                    Style="{StaticResource SectionTitle}"
                    FontSize="28"
                    HorizontalOptions="Center" />
-            <Label Text="Inicio de sesion"
+            <Label Text="Inicio de sesión"
                    Style="{StaticResource MutedLabel}"
                    HorizontalOptions="Center"
                    Margin="0,0,0,10" />
@@ -24,9 +24,9 @@
                            Placeholder="Ingrese su usuario"
                            BackgroundColor="{StaticResource Surface}" />
 
-                    <Label Text="Contrasena" Style="{StaticResource FieldLabel}" FontAttributes="Bold" />
+                    <Label Text="Contraseña" Style="{StaticResource FieldLabel}" FontAttributes="Bold" />
                     <Entry x:Name="ContrasenaEntry"
-                           Placeholder="Ingrese su contrasena"
+                           Placeholder="Ingrese su contraseña"
                            IsPassword="True"
                            BackgroundColor="{StaticResource Surface}" />
 

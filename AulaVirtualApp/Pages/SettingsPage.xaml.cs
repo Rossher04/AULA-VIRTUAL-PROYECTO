@@ -19,7 +19,7 @@ public partial class SettingsPage : ContentPage
         if (!string.IsNullOrWhiteSpace(AulaUrlEntry.Text))
             ApiConfig.AulaBaseUrl = AulaUrlEntry.Text;
 
-        await DisplayAlert("Guardado", "La configuracion se guardo correctamente.", "OK");
+        await DisplayAlert("Guardado", "La configuración se guardó correctamente.", "OK");
         await Navigation.PopAsync();
     }
 }

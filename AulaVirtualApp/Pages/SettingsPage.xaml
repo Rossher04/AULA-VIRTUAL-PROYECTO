@@ -12,7 +12,7 @@
                     <Label Text="URL base de la API de Login" Style="{StaticResource FieldLabel}" />
                     <Entry x:Name="LoginUrlEntry" Placeholder="http://10.0.2.2:8001/api/" Keyboard="Url" />
 
-                    <Label Text="URL base de la API de Aula (academica)" Style="{StaticResource FieldLabel}" />
+                    <Label Text="URL base de la API de Aula (académica)" Style="{StaticResource FieldLabel}" />
                     <Entry x:Name="AulaUrlEntry" Placeholder="http://10.0.2.2:8002/api/" Keyboard="Url" />
                 </VerticalStackLayout>
             </Frame>
@@ -21,7 +21,7 @@
                 <VerticalStackLayout Spacing="6">
                     <Label Text="Tips" Style="{StaticResource CardTitle}" />
                     <Label Text="- Emulador de Android: usa 10.0.2.2 en vez de 127.0.0.1 / localhost." Style="{StaticResource MutedLabel}" />
-                    <Label Text="- Dispositivo fisico o Windows: usa la IP de tu PC en la red (ej. 192.168.1.50) y asegurate que el firewall permita el puerto." Style="{StaticResource MutedLabel}" />
+                    <Label Text="- Dispositivo físico o Windows: usa la IP de tu PC en la red (ej. 192.168.1.50) y asegúrate que el firewall permita el puerto." Style="{StaticResource MutedLabel}" />
                     <Label Text="- Ambas APIs deben estar corriendo (runserver) en sus puertos 8001 y 8002." Style="{StaticResource MutedLabel}" />
                 </VerticalStackLayout>
             </Frame>

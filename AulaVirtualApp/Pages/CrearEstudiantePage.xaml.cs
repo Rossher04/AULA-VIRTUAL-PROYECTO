@@ -58,7 +58,7 @@ public partial class CrearEstudiantePage : ContentPage
         else if (!carrerasResult.Ok)
             ErrorLabel.ShowError(carrerasResult.ErrorMessage ?? "No se pudieron cargar las carreras.");
         else if (CarreraPicker.Items.Count == 0)
-            ErrorLabel.ShowError("Todavia no hay carreras creadas. Crea al menos una carrera antes de registrar alumnos.");
+            ErrorLabel.ShowError("Todavía no hay carreras creadas. Crea al menos una carrera antes de registrar alumnos.");
     }
 
     private async void OnCrearClicked(object sender, EventArgs e)
@@ -75,13 +75,13 @@ public partial class CrearEstudiantePage : ContentPage
             string.IsNullOrWhiteSpace(carne) || string.IsNullOrWhiteSpace(usuario) ||
             string.IsNullOrWhiteSpace(contrasena))
         {
-            ErrorLabel.ShowError("Completa nombre, apellido, carne, usuario y contrasena.");
+            ErrorLabel.ShowError("Completa nombre, apellido, carné, usuario y contraseña.");
             return;
         }
 
         if (InstitucionPicker.SelectedIndex < 0)
         {
-            ErrorLabel.ShowError("Selecciona una institucion.");
+            ErrorLabel.ShowError("Selecciona una institución.");
             return;
         }
 
@@ -136,9 +136,9 @@ public partial class CrearEstudiantePage : ContentPage
         {
             await ApiClient.DeleteAsync(ApiTarget.Login, $"usuarios/{idUsuarioCreado}/");
 
-            ErrorLabel.ShowError("El usuario se creo pero no se pudo registrar el alumno en Aula.\n" +
+            ErrorLabel.ShowError("El usuario se creó pero no se pudo registrar el alumno en Aula.\n" +
                          (estudianteResult.ErrorMessage ?? "") +
-                         "\nSe revirtio la creacion del usuario, intenta de nuevo.");
+                         "\nSe revirtió la creación del usuario, intenta de nuevo.");
             return;
         }
 

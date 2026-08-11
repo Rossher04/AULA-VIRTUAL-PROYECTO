@@ -36,7 +36,7 @@ public partial class EntityListPage : ContentPage
 
         if (!result.Ok)
         {
-            ErrorLabel.ShowError(result.ErrorMessage ?? "No se pudo cargar la informacion.");
+            ErrorLabel.ShowError(result.ErrorMessage ?? "No se pudo cargar la información.");
             return;
         }
 
@@ -86,7 +86,7 @@ public partial class EntityListPage : ContentPage
         if (sender is not SwipeItem { BindingContext: EntityRow row })
             return;
 
-        var confirmar = await DisplayAlert("Eliminar", $"Se eliminara: {row.Title}", "Eliminar", "Cancelar");
+        var confirmar = await DisplayAlert("Eliminar", $"Se eliminará: {row.Title}", "Eliminar", "Cancelar");
         if (!confirmar)
             return;
 
