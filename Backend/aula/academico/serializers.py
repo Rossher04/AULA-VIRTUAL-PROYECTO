@@ -43,7 +43,7 @@ class CarreraSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Carrera
-        fields = ['id', 'facultad', 'facultad_nombre', 'nombre']
+        fields = ['id_carrera', 'facultad', 'facultad_nombre', 'nombre']
 
 
 class SemestreSerializer(serializers.ModelSerializer):
@@ -58,7 +58,7 @@ class CarreraSemestreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CarreraSemestre
-        fields = ['id', 'carrera', 'carrera_nombre', 'semestre', 'semestre_numero']
+        fields = ['id_carrera_semestre', 'carrera', 'carrera_nombre', 'semestre', 'semestre_numero']
 
 
 class CursoSerializer(serializers.ModelSerializer):
@@ -74,7 +74,7 @@ class PensumSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pensum
-        fields = ['id', 'carrera_semestre', 'curso', 'curso_nombre', 'carrera_nombre', 'semestre_numero']
+        fields = ['id_pensum', 'carrera_semestre', 'curso', 'curso_nombre', 'carrera_nombre', 'semestre_numero']
 
 
 class DocenteSerializer(serializers.ModelSerializer):
