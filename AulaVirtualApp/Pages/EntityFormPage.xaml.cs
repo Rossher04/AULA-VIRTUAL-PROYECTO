@@ -118,6 +118,8 @@ public partial class EntityFormPage : ContentPage
             FillExistingValues();
         }
 
+        MostrarAvisoDePrerrequisitos();
+
         // Boton Guardar
         var guardarBtn = new Button { Text = "Guardar", Margin = new Thickness(0, 10, 0, 0) };
         guardarBtn.Clicked += OnGuardarClicked;
@@ -127,6 +129,32 @@ public partial class EntityFormPage : ContentPage
         FieldsContainer.Children.Add(_errorLabel);
 
         SetLoading(false);
+    }
+
+    /// <summary>
+    /// Si algun Picker obligatorio quedo sin opciones, el formulario es imposible de
+    /// completar: se avisa arriba que hay que crear esos catalogos primero, en vez de
+    /// dejar al usuario frente a un desplegable vacio sin explicacion.
+    /// </summary>
+    private void MostrarAvisoDePrerrequisitos()
+    {
+        var faltantes = _runtimeFields
+            .Where(r => r.Config.Type == FieldType.Picker && r.Config.Required && r.PickerValues.Count == 0)
+            .Select(r => r.Config.Label)
+            .ToList();
+
+        if (faltantes.Count == 0)
+            return;
+
+        var aviso = new Label
+        {
+            Style = (Style)Application.Current!.Resources["WarningLabel"],
+            Text = "Para poder guardar, primero debes crear al menos un registro de: " +
+                   string.Join(", ", faltantes) +
+                   ".\nRegresa al panel de administrador y crealos en la seccion correspondiente."
+        };
+
+        FieldsContainer.Children.Insert(0, aviso);
     }
 
     private async Task LoadPickerOptionsAsync(RuntimeField runtime)

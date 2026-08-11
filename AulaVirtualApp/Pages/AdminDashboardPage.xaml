@@ -37,6 +37,8 @@
             <Frame Style="{StaticResource CardFrame}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Asignacion de docencia" Style="{StaticResource CardTitle}" />
+                    <Label Text="Requiere tener creados antes: pensum (curso asignado a semestre por carrera), ciclo academico y horario."
+                           Style="{StaticResource MutedLabel}" Margin="0,0,0,4" />
                     <Button Text="Asignar catedratico a curso" Clicked="OnSeccionesClicked" />
                     <Button Text="Asignar alumno a curso" Clicked="OnEstudianteSeccionesClicked" />
                 </VerticalStackLayout>

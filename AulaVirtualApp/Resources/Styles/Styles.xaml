@@ -18,7 +18,7 @@
     <Style TargetType="Button" x:Key="SecondaryButton">
         <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
         <Setter Property="TextColor" Value="{StaticResource Primary}" />
-        <Setter Property="BorderColor" Value="{StaticResource Primary}" />
+        <Setter Property="BorderColor" Value="{StaticResource PrimaryMid}" />
         <Setter Property="BorderWidth" Value="1.5" />
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="Padding" Value="16,12" />
@@ -50,6 +50,12 @@
         <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
         <Setter Property="TextColor" Value="{StaticResource Black}" />
         <Setter Property="TitleColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <!-- Aviso de prerrequisitos faltantes en un formulario (ej. no hay ciclos creados) -->
+    <Style TargetType="Label" x:Key="WarningLabel">
+        <Setter Property="TextColor" Value="{StaticResource WarningAmber}" />
+        <Setter Property="FontSize" Value="13" />
     </Style>
 
     <Style TargetType="Label">
