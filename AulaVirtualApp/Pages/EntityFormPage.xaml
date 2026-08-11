@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AulaVirtualApp.Pages.EntityFormPage"
+             Title="Formulario">
+
+    <Grid>
+        <ScrollView>
+            <VerticalStackLayout Padding="16" MaximumWidthRequest="520" HorizontalOptions="Center">
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="10" x:Name="FieldsContainer">
+                        <!-- Los campos se agregan dinamicamente en el codigo, segun EntityConfig.Fields -->
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <ActivityIndicator x:Name="LoadingIndicator"
+                            IsRunning="False" IsVisible="False"
+                            Color="{StaticResource Primary}"
+                            VerticalOptions="Center" HorizontalOptions="Center" />
+    </Grid>
+
+</ContentPage>

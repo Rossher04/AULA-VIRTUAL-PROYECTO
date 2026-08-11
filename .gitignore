@@ -1,0 +1,19 @@
+# --- .NET / MAUI ---
+AulaVirtualApp/bin/
+AulaVirtualApp/obj/
+AulaVirtualApp/*.csproj.user
+**/.vs/
+
+# --- Python / Django (ver tambien Backend/.gitignore) ---
+Backend/.venv/
+**/__pycache__/
+*.py[cod]
+*.sqlite3
+Backend/**/staticfiles/
+Backend/local.env.ps1
+.env
+
+# --- Editor / SO ---
+.vscode/
+.DS_Store
+Thumbs.db

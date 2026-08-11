@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AulaVirtualApp.Pages.CrearEstudiantePage"
+             Title="Nuevo alumno">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14" MaximumWidthRequest="520" HorizontalOptions="Center">
+
+            <Frame Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Datos del alumno" Style="{StaticResource CardTitle}" />
+
+                    <Label Text="Nombre" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="NombreEntry" />
+
+                    <Label Text="Apellido" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="ApellidoEntry" />
+
+                    <Label Text="Carne" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="CarneEntry" Placeholder="ej. 2026001" />
+
+                    <Label Text="Institucion" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="InstitucionPicker" Title="Selecciona institucion" />
+
+                    <Label Text="Carrera" Style="{StaticResource FieldLabel}" />
+                    <Picker x:Name="CarreraPicker" Title="Selecciona carrera" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Credenciales de acceso" Style="{StaticResource CardTitle}" />
+                    <Label Text="Se crean en el modulo de Login." Style="{StaticResource MutedLabel}" Margin="0,-6,0,0" />
+
+                    <Label Text="Usuario" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="UsuarioEntry" Placeholder="ej. alopez" />
+
+                    <Label Text="Contrasena temporal" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="ContrasenaEntry" IsPassword="True" Placeholder="ej. Estudiante123!" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label x:Name="ErrorLabel" Style="{StaticResource ErrorLabel}" IsVisible="False" />
+
+            <Button Text="Crear alumno" Clicked="OnCrearClicked" />
+            <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" Color="{StaticResource Primary}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

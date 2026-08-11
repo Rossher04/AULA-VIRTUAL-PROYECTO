@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AulaVirtualApp.Pages.LoginPage"
+             Title="Aula Virtual UMES">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="16" VerticalOptions="Center" MaximumWidthRequest="420" HorizontalOptions="Center">
+
+            <Label Text="Aula Virtual UMES"
+                   Style="{StaticResource SectionTitle}"
+                   FontSize="28"
+                   HorizontalOptions="Center" />
+            <Label Text="Inicio de sesion"
+                   Style="{StaticResource MutedLabel}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10" />
+
+            <Frame Style="{StaticResource CardFrame}" BackgroundColor="{StaticResource PrimaryLight}">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Usuario" Style="{StaticResource FieldLabel}" FontAttributes="Bold" />
+                    <Entry x:Name="UsuarioEntry"
+                           Placeholder="Ingrese su usuario"
+                           BackgroundColor="{StaticResource Surface}" />
+
+                    <Label Text="Contrasena" Style="{StaticResource FieldLabel}" FontAttributes="Bold" />
+                    <Entry x:Name="ContrasenaEntry"
+                           Placeholder="Ingrese su contrasena"
+                           IsPassword="True"
+                           BackgroundColor="{StaticResource Surface}" />
+
+                    <Label x:Name="ErrorLabel"
+                           Style="{StaticResource ErrorLabel}"
+                           IsVisible="False" />
+
+                    <Button x:Name="LoginButton" Text="Ingresar" Clicked="OnLoginClicked" Margin="0,10,0,0" />
+
+                    <ActivityIndicator x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" Color="{StaticResource Primary}" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

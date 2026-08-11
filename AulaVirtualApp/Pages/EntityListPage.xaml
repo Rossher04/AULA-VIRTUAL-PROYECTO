@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AulaVirtualApp.Pages.EntityListPage"
+             Title="Lista">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+ Agregar" Clicked="OnAgregarClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Label x:Name="ErrorLabel"
+               Grid.Row="0"
+               Style="{StaticResource ErrorLabel}"
+               Padding="16,8"
+               IsVisible="False" />
+
+        <RefreshView x:Name="RefreshViewControl" Grid.Row="1" Refreshing="OnRefreshing">
+            <Grid>
+                <CollectionView x:Name="ItemsView" SelectionMode="None">
+                    <CollectionView.EmptyView>
+                        <VerticalStackLayout Padding="30" VerticalOptions="Center">
+                            <Label Text="No hay registros todavia."
+                                   HorizontalOptions="Center"
+                                   TextColor="{StaticResource Gray600}" />
+                            <Label Text="Toca '+ Agregar' para crear el primero."
+                                   HorizontalOptions="Center"
+                                   TextColor="{StaticResource Gray600}"
+                                   FontSize="12" />
+                        </VerticalStackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Eliminar"
+                                                   BackgroundColor="{StaticResource ErrorRed}"
+                                                   Invoked="OnEliminarInvoked"
+                                                   BindingContext="{Binding}" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+
+                                <Frame Style="{StaticResource ListItemFrame}" Margin="12,6">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnItemTapped" />
+                                    </Frame.GestureRecognizers>
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource PrimaryDark}" />
+                                        <Label Text="{Binding Subtitle}" Style="{StaticResource MutedLabel}"
+                                               IsVisible="{Binding HasSubtitle}" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <ActivityIndicator x:Name="LoadingIndicator"
+                                    IsRunning="False" IsVisible="False"
+                                    Color="{StaticResource Primary}"
+                                    VerticalOptions="Center" HorizontalOptions="Center" />
+            </Grid>
+        </RefreshView>
+    </Grid>
+
+</ContentPage>

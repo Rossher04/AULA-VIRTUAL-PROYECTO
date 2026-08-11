@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <!-- Botones de acciones secundarias / datos de apoyo (menos prioritarios que la accion principal) -->
+    <Style TargetType="Button" x:Key="SecondaryButton">
+        <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+        <Setter Property="BorderColor" Value="{StaticResource Primary}" />
+        <Setter Property="BorderWidth" Value="1.5" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <!-- Acciones destructivas: cerrar sesion, eliminar -->
+    <Style TargetType="Button" x:Key="DangerButton">
+        <Setter Property="BackgroundColor" Value="{StaticResource ErrorRed}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <Style TargetType="Editor">
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <Style TargetType="Picker">
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="TitleColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="SectionTitle">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <!-- Titulo de una tarjeta dentro de una pantalla (mas chico que SectionTitle) -->
+    <Style TargetType="Label" x:Key="CardTitle">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource PrimaryDark}" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="FieldLabel">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="ErrorLabel">
+        <Setter Property="TextColor" Value="{StaticResource ErrorRed}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="MutedLabel">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <!-- Tarjeta blanca elevada, contenedor principal de casi toda la UI -->
+    <Style TargetType="Frame" x:Key="CardFrame">
+        <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+        <Setter Property="BorderColor" Value="{StaticResource BorderSoft}" />
+        <Setter Property="CornerRadius" Value="16" />
+        <Setter Property="Padding" Value="18" />
+        <Setter Property="HasShadow" Value="True" />
+    </Style>
+
+    <!-- Fila de una lista (EntityListPage) -->
+    <Style TargetType="Frame" x:Key="ListItemFrame">
+        <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+        <Setter Property="BorderColor" Value="{StaticResource BorderSoft}" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="14" />
+        <Setter Property="HasShadow" Value="False" />
+    </Style>
+
+</ResourceDictionary>

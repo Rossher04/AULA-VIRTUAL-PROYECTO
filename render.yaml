@@ -1,0 +1,99 @@
+# Blueprint de Render para el Aula Virtual UMES.
+#
+# Como usarlo:
+#   1. Sube este repositorio a GitHub.
+#   2. En Render: New > Blueprint > selecciona el repo > Apply.
+#   3. Render crea automaticamente: 2 bases Postgres (free) + 2 web services
+#      (Django + gunicorn) + el secreto compartido AULA_SHARED_SECRET_KEY.
+#   4. Los nombres de servicio (aulavirtual-umes-academico / -login) forman
+#      la URL publica: https://<nombre>.onrender.com. Si alguno ya esta
+#      tomado por otro usuario de Render, cambialo aqui y en ApiConfig.cs.
+#   5. Antes de que la API "aula" funcione, hay que correr una vez el script
+#      "Base de datos general.sql" contra aulavirtual-umes-aula-db (ver DEPLOY.md);
+#      las tablas de esa API son manejadas por SQL, no por las migraciones de Django.
+databases:
+  - name: aulavirtual-umes-aula-db
+    plan: free
+    databaseName: aula_virtual_academica
+    user: aula_app
+
+  - name: aulavirtual-umes-login-db
+    plan: free
+    databaseName: login_db
+    user: login_app
+
+envVarGroups:
+  - name: aulavirtual-umes-shared
+    envVars:
+      # Debe ser IGUAL en ambos servicios: el token que firma "login" lo valida "aula".
+      - key: AULA_SHARED_SECRET_KEY
+        generateValue: true
+
+services:
+  - type: web
+    name: aulavirtual-umes-academico
+    env: python
+    plan: free
+    rootDir: Backend/aula
+    buildCommand: "pip install -r ../requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn aula_api.wsgi:application"
+    envVars:
+      - fromGroup: aulavirtual-umes-shared
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: AULA_POSTGRES_DB
+        fromDatabase:
+          name: aulavirtual-umes-aula-db
+          property: database
+      - key: AULA_POSTGRES_USER
+        fromDatabase:
+          name: aulavirtual-umes-aula-db
+          property: user
+      - key: AULA_POSTGRES_PASSWORD
+        fromDatabase:
+          name: aulavirtual-umes-aula-db
+          property: password
+      - key: AULA_POSTGRES_HOST
+        fromDatabase:
+          name: aulavirtual-umes-aula-db
+          property: host
+      - key: AULA_POSTGRES_PORT
+        fromDatabase:
+          name: aulavirtual-umes-aula-db
+          property: port
+
+  - type: web
+    name: aulavirtual-umes-login
+    env: python
+    plan: free
+    rootDir: Backend/login
+    buildCommand: "pip install -r ../requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn login_api.wsgi:application"
+    envVars:
+      - fromGroup: aulavirtual-umes-shared
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: LOGIN_POSTGRES_DB
+        fromDatabase:
+          name: aulavirtual-umes-login-db
+          property: database
+      - key: LOGIN_POSTGRES_USER
+        fromDatabase:
+          name: aulavirtual-umes-login-db
+          property: user
+      - key: LOGIN_POSTGRES_PASSWORD
+        fromDatabase:
+          name: aulavirtual-umes-login-db
+          property: password
+      - key: LOGIN_POSTGRES_HOST
+        fromDatabase:
+          name: aulavirtual-umes-login-db
+          property: host
+      - key: LOGIN_POSTGRES_PORT
+        fromDatabase:
+          name: aulavirtual-umes-login-db
+          property: port

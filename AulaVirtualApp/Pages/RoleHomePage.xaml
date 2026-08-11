@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AulaVirtualApp.Pages.RoleHomePage"
+             Title="Aula Virtual">
+
+    <VerticalStackLayout Padding="30" Spacing="16" VerticalOptions="Center" MaximumWidthRequest="420" HorizontalOptions="Center">
+        <Frame Style="{StaticResource CardFrame}" BackgroundColor="{StaticResource PrimaryLight}">
+            <VerticalStackLayout Spacing="10">
+                <Label x:Name="TitleLabel" Style="{StaticResource SectionTitle}" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                <Label x:Name="MessageLabel" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                <Label x:Name="UserLabel" Style="{StaticResource MutedLabel}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Frame>
+        <Button Text="Cerrar sesion" Clicked="OnLogoutClicked" Style="{StaticResource DangerButton}" Margin="0,10,0,0" />
+    </VerticalStackLayout>
+
+</ContentPage>

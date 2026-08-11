@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AulaVirtualApp.Pages.SettingsPage"
+             Title="Configurar servidores">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14" MaximumWidthRequest="520" HorizontalOptions="Center">
+
+            <Frame Style="{StaticResource CardFrame}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="URL base de la API de Login" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="LoginUrlEntry" Placeholder="http://10.0.2.2:8001/api/" Keyboard="Url" />
+
+                    <Label Text="URL base de la API de Aula (academica)" Style="{StaticResource FieldLabel}" />
+                    <Entry x:Name="AulaUrlEntry" Placeholder="http://10.0.2.2:8002/api/" Keyboard="Url" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Style="{StaticResource CardFrame}" BackgroundColor="{StaticResource PrimaryLight}">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Tips" Style="{StaticResource CardTitle}" />
+                    <Label Text="- Emulador de Android: usa 10.0.2.2 en vez de 127.0.0.1 / localhost." Style="{StaticResource MutedLabel}" />
+                    <Label Text="- Dispositivo fisico o Windows: usa la IP de tu PC en la red (ej. 192.168.1.50) y asegurate que el firewall permita el puerto." Style="{StaticResource MutedLabel}" />
+                    <Label Text="- Ambas APIs deben estar corriendo (runserver) en sus puertos 8001 y 8002." Style="{StaticResource MutedLabel}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Guardar" Clicked="OnGuardarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

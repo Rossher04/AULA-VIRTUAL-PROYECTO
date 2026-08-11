@@ -1,0 +1,53 @@
+from django.contrib import admin
+
+from .models import (
+    Anuncio,
+    Asistencia,
+    Aula,
+    Carrera,
+    CarreraSemestre,
+    CicloAcademico,
+    Curso,
+    Docente,
+    Entrega,
+    Estudiante,
+    EstudianteSeccion,
+    Facultad,
+    Horario,
+    Institucion,
+    Modulo,
+    Nota,
+    Pensum,
+    Recurso,
+    Seccion,
+    Semestre,
+    SesionVirtual,
+    Tarea,
+)
+
+
+for model in [
+    Institucion,
+    Facultad,
+    Carrera,
+    Semestre,
+    CarreraSemestre,
+    Curso,
+    Pensum,
+    Docente,
+    Estudiante,
+    Aula,
+    Modulo,
+    Horario,
+    CicloAcademico,
+    Seccion,
+    EstudianteSeccion,
+    SesionVirtual,
+    Asistencia,
+    Recurso,
+    Anuncio,
+    Tarea,
+    Entrega,
+    Nota,
+]:
+    admin.site.register(model)
