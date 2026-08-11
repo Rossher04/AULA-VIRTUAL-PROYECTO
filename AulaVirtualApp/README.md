@@ -1,9 +1,9 @@
 ﻿# Aula Virtual UMES - Frontend .NET MAUI (Fase 1)
 
-App de escritorio Windows (.NET 10 MAUI, target Windows) que consume las dos APIs Django del
-backend (`login` en el puerto 8001 y `aula` en el puerto 8002) para implementar
-la Fase 1 de la hoja de trabajo: Login con 3 roles + funcionalidad completa del
-rol Administrador.
+App de escritorio Windows (.NET 10 MAUI, target Windows) que consume las dos APIs Django
+del backend (`login` y `aula`), publicadas en la nube (Render, ver `/DEPLOY.md` en la raiz
+del proyecto), para implementar la Fase 1 de la hoja de trabajo: Login con 3 roles +
+funcionalidad completa del rol Administrador.
 
 ## Como abrir el proyecto
 
@@ -14,7 +14,12 @@ rol Administrador.
 3. Selecciona el target `net10.0-windows10.0.19041.0` y ejecuta en Windows Machine
    como destino de depuracion.
 
-## Antes de correr la app: levantar los dos backends
+Por defecto la app apunta a las APIs publicadas en Render (ver `Services/ApiConfig.cs`),
+asi que no necesitas levantar nada localmente para probarla.
+
+## Desarrollo local (opcional): levantar los dos backends
+
+Si quieres correr los backends en tu propia maquina en vez de usar la nube:
 
 ```powershell
 cd Backend\login
@@ -25,19 +30,10 @@ cd Backend\aula
 ```
 
 Usa `0.0.0.0` (no `127.0.0.1`) para que el emulador/dispositivo pueda conectarse
-a tu PC.
-
-## Configurar las URLs desde la app
-
-La app usa estas URLs fijas para Windows:
-
-- Windows -> `http://127.0.0.1:8001/api/` y `http://127.0.0.1:8002/api/`
-  Ya vienen asi por defecto.
-- Dispositivo fisico o Windows -> usa la IP de tu PC en la red, ej.
-  `http://192.168.1.50:8001/api/` y `http://192.168.1.50:8002/api/`.
-  Verifica que el firewall de Windows permita esos puertos.
-
-No se muestra configuracion de servidores en la pantalla de login.
+a tu PC. Luego, desde la app, entra a **Configuracion** (`SettingsPage`) y cambia
+las URLs a `http://127.0.0.1:8001/api/` y `http://127.0.0.1:8002/api/` (o la IP de
+tu PC en la red si usas un dispositivo fisico) — el boton **Guardar** persiste el
+cambio entre sesiones.
 
 ## Usuario de prueba
 
