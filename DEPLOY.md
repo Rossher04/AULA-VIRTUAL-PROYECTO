@@ -89,6 +89,31 @@ El último debe devolver `"ok": true` y un `token`. Si da 500, revisa los logs d
 servicio en el dashboard de Render (pestaña **Logs**) — casi siempre es el paso 3
 pendiente o una variable de entorno mal copiada.
 
+## 4.b Cargar datos de prueba (opcional)
+
+Para no tener que crear a mano toda la cadena académica antes de poder usar las
+pantallas de asignación (y para tener con qué tomar las capturas del PDF), hay un
+script que llena datos genéricos consumiendo las mismas APIs que la app:
+
+```bash
+python Backend/seed_datos_prueba.py
+```
+
+Crea facultades, carreras, semestres por carrera, cursos, pensum, ciclos, aulas,
+módulos, horarios, 3 catedráticos y 5 alumnos (cada uno con su usuario de acceso),
+más las asignaciones de catedrático a curso y de alumnos a curso.
+
+Es **idempotente y aditivo**: busca cada registro por su clave natural antes de
+crearlo, así que se puede correr varias veces sin duplicar nada y sin borrar los
+datos que ya tengas. Para apuntarlo a backends locales:
+
+```bash
+python Backend/seed_datos_prueba.py --login http://127.0.0.1:8001/api --aula http://127.0.0.1:8002/api
+```
+
+Usuarios que crea (contraseña `Prueba123!`): catedráticos `mgarcia`, `lmendez`,
+`rlopez`; alumnos `acastillo`, `jramirez`, `mflores`, `dperez`, `svasquez`.
+
 ## 5. Apuntar la app MAUI
 
 `AulaVirtualApp/Services/ApiConfig.cs` ya trae por defecto las URLs de Render
