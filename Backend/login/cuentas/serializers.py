@@ -17,6 +17,10 @@ class InstitucionSerializer(serializers.ModelSerializer):
 
 class UsuarioSerializer(serializers.ModelSerializer):
     contrasena = serializers.CharField(write_only=True, required=False)
+    # rol no es required=False a nivel de modelo (la columna es NOT NULL), pero a nivel
+    # de API se puede resolver a partir de rol_tipo (ver validate() y create()), asi que
+    # aqui se declara opcional para no exigir ambos.
+    rol = serializers.PrimaryKeyRelatedField(queryset=Rol.objects.all(), required=False)
     rol_nombre = serializers.CharField(source='rol.tipo_rol', read_only=True)
     rol_tipo = serializers.CharField(write_only=True, required=False)
     institucion_nombre = serializers.CharField(source='institucion.nombre', read_only=True)
@@ -36,6 +40,11 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'fecha_creacion',
         ]
         read_only_fields = ['fecha_creacion']
+
+    def validate(self, attrs):
+        if self.instance is None and not attrs.get('rol') and not attrs.get('rol_tipo'):
+            raise serializers.ValidationError({'rol': 'Debe indicar "rol" o "rol_tipo".'})
+        return attrs
 
     def create(self, validated_data):
         password = validated_data.pop('contrasena', 'Temporal123!')

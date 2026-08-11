@@ -57,6 +57,14 @@ public class EntityConfig
     public ApiTarget ApiTarget { get; set; }
     public List<FieldConfig> Fields { get; set; } = new();
 
+    /// <summary>
+    /// Nombre real de la llave primaria en el JSON de esta entidad. Los modelos de la
+    /// API "aula" usan nombres de PK propios (ej. "id_facultad") en vez de "id" generico,
+    /// para calzar con el diseno de base de datos en SQL. Se usa para editar/eliminar filas
+    /// y como valor por defecto de ValueField cuando esta entidad alimenta un Picker.
+    /// </summary>
+    public string IdField { get; set; } = "id";
+
     /// <summary>Texto principal a mostrar por cada fila de la lista.</summary>
     public Func<JsonObject, string> DisplayTitle { get; set; } = _ => "(sin nombre)";
 

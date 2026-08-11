@@ -8,5 +8,6 @@ public class EntityRow
     public string Subtitle { get; set; } = string.Empty;
     public bool HasSubtitle => !string.IsNullOrWhiteSpace(Subtitle);
     public JsonObject Data { get; set; } = new JsonObject();
-    public string Id => Data.TryGetPropertyValue("id", out var v) && v != null ? v.ToString() : string.Empty;
+    public string IdField { get; set; } = "id";
+    public string Id => Data.TryGetPropertyValue(IdField, out var v) && v != null ? v.ToString() : string.Empty;
 }

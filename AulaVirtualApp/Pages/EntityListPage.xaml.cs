@@ -49,7 +49,8 @@ public partial class EntityListPage : ContentPage
                 {
                     Title = UiHelpers.SafeText(() => _config.DisplayTitle(obj)),
                     Subtitle = _config.DisplaySubtitle != null ? UiHelpers.SafeText(() => _config.DisplaySubtitle(obj)) : string.Empty,
-                    Data = obj
+                    Data = obj,
+                    IdField = _config.IdField
                 });
             }
         }

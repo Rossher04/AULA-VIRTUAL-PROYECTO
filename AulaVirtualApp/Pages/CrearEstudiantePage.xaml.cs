@@ -32,7 +32,7 @@ public partial class CrearEstudiantePage : ContentPage
             {
                 if (node is not JsonObject obj) continue;
                 InstitucionPicker.Items.Add(obj.GetStr("nombre"));
-                _institucionIds.Add(obj.GetIntOrZero("id"));
+                _institucionIds.Add(obj.GetIntOrZero("id_institucion"));
             }
             if (InstitucionPicker.Items.Count > 0)
                 InstitucionPicker.SelectedIndex = 0;
@@ -47,7 +47,7 @@ public partial class CrearEstudiantePage : ContentPage
             {
                 if (node is not JsonObject obj) continue;
                 CarreraPicker.Items.Add(obj.GetStr("nombre"));
-                _carreraIds.Add(obj.GetIntOrZero("id"));
+                _carreraIds.Add(obj.GetIntOrZero("id_carrera"));
             }
         }
 

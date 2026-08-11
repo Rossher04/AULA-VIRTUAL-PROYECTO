@@ -37,7 +37,7 @@ public partial class CrearDocentePage : ContentPage
         {
             if (node is not JsonObject obj) continue;
             InstitucionPicker.Items.Add(obj.GetStr("nombre"));
-            _institucionIds.Add(obj.GetIntOrZero("id"));
+            _institucionIds.Add(obj.GetIntOrZero("id_institucion"));
         }
 
         if (InstitucionPicker.Items.Count > 0)

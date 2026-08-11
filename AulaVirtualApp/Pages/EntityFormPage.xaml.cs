@@ -313,7 +313,7 @@ public partial class EntityFormPage : ContentPage
         SetLoading(true);
 
         var result = _isEdit
-            ? await ApiClient.PutAsync(_config.ApiTarget, $"{_config.Endpoint}{_existing!.GetStr("id")}/", body)
+            ? await ApiClient.PutAsync(_config.ApiTarget, $"{_config.Endpoint}{_existing!.GetStr(_config.IdField)}/", body)
             : await ApiClient.PostAsync(_config.ApiTarget, _config.Endpoint, body);
 
         SetLoading(false);
