@@ -102,9 +102,19 @@ class ModuloSerializer(serializers.ModelSerializer):
 
 
 class HorarioSerializer(serializers.ModelSerializer):
+    modulo_nombre = serializers.CharField(source='modulo.nombre', read_only=True)
+    hora_inicio = serializers.TimeField(source='modulo.hora_inicio', read_only=True, format='%H:%M')
+    hora_fin = serializers.TimeField(source='modulo.hora_fin', read_only=True, format='%H:%M')
+    aula_nombre = serializers.CharField(source='aula.nombre', read_only=True)
+
     class Meta:
         model = Horario
-        fields = '__all__'
+        fields = [
+            'id_horario',
+            'modulo', 'modulo_nombre', 'hora_inicio', 'hora_fin',
+            'aula', 'aula_nombre',
+            'dia',
+        ]
 
 
 class CicloAcademicoSerializer(serializers.ModelSerializer):
@@ -114,16 +124,50 @@ class CicloAcademicoSerializer(serializers.ModelSerializer):
 
 
 class SeccionSerializer(serializers.ModelSerializer):
+    # Etiquetas legibles para que la app no tenga que mostrar IDs crudos.
+    curso_nombre = serializers.CharField(source='pensum.curso.nombre', read_only=True)
+    curso_codigo = serializers.CharField(source='pensum.curso.codigo', read_only=True)
+    carrera_nombre = serializers.CharField(source='pensum.carrera_semestre.carrera.nombre', read_only=True)
+    semestre_numero = serializers.IntegerField(source='pensum.carrera_semestre.semestre.numero', read_only=True)
+    ciclo_nombre = serializers.CharField(source='ciclo.nombre', read_only=True)
+    docente_nombre = serializers.SerializerMethodField()
+    horario_descripcion = serializers.SerializerMethodField()
+
     class Meta:
         model = Seccion
-        fields = '__all__'
+        fields = [
+            'id_seccion',
+            'pensum', 'curso_nombre', 'curso_codigo', 'carrera_nombre', 'semestre_numero',
+            'ciclo', 'ciclo_nombre',
+            'docente', 'docente_nombre',
+            'horario', 'horario_descripcion',
+        ]
+
+    def get_docente_nombre(self, obj):
+        return f'{obj.docente.nombre} {obj.docente.apellido}'
+
+    def get_horario_descripcion(self, obj):
+        return f'{obj.horario.dia} {obj.horario.modulo.hora_inicio:%H:%M}-{obj.horario.modulo.hora_fin:%H:%M} ({obj.horario.aula.nombre})'
 
 
 class EstudianteSeccionSerializer(serializers.ModelSerializer):
+    estudiante_nombre = serializers.SerializerMethodField()
+    estudiante_carne = serializers.CharField(source='estudiante.carne', read_only=True)
+    curso_nombre = serializers.CharField(source='seccion.pensum.curso.nombre', read_only=True)
+    ciclo_nombre = serializers.CharField(source='seccion.ciclo.nombre', read_only=True)
+
     class Meta:
         model = EstudianteSeccion
-        fields = '__all__'
+        fields = [
+            'id_estudiante_seccion',
+            'estudiante', 'estudiante_nombre', 'estudiante_carne',
+            'seccion', 'curso_nombre', 'ciclo_nombre',
+            'fecha_inscripcion',
+        ]
         read_only_fields = ['fecha_inscripcion']
+
+    def get_estudiante_nombre(self, obj):
+        return f'{obj.estudiante.nombre} {obj.estudiante.apellido}'
 
 
 class SesionVirtualSerializer(serializers.ModelSerializer):

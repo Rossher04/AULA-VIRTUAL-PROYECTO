@@ -52,6 +52,29 @@
         <Setter Property="TitleColor" Value="{StaticResource Gray600}" />
     </Style>
 
+    <!-- Sin estos estilos, DatePicker/TimePicker heredan el color de texto por defecto
+         de la plataforma y el valor puede quedar ilegible sobre el fondo claro. -->
+    <Style TargetType="DatePicker">
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+    </Style>
+
+    <Style TargetType="TimePicker">
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+    </Style>
+
+    <Style TargetType="SearchBar">
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray100}" />
+        <Setter Property="TextColor" Value="{StaticResource Black}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource Gray600}" />
+    </Style>
+
+    <Style TargetType="Switch">
+        <Setter Property="OnColor" Value="{StaticResource PrimaryMid}" />
+        <Setter Property="ThumbColor" Value="{StaticResource Surface}" />
+    </Style>
+
     <!-- Aviso de prerrequisitos faltantes en un formulario (ej. no hay ciclos creados) -->
     <Style TargetType="Label" x:Key="WarningLabel">
         <Setter Property="TextColor" Value="{StaticResource WarningAmber}" />

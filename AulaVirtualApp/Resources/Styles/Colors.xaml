@@ -7,12 +7,13 @@
     <Color x:Key="PrimaryDark">#062D1E</Color>
     <Color x:Key="PrimaryMid">#58A66B</Color>
     <Color x:Key="PrimarySoft">#7CA67F</Color>
-    <Color x:Key="PrimaryLight">#D9D0C1</Color>
+    <!-- Tinte verde muy claro para tarjetas destacadas (se distingue del fondo beige) -->
+    <Color x:Key="PrimaryLight">#E7EFE8</Color>
     <Color x:Key="Secondary">#58A66B</Color>
 
-    <Color x:Key="Background">#F2F2F2</Color>
+    <Color x:Key="Background">#D9D0C1</Color>
     <Color x:Key="Surface">#FFFFFF</Color>
-    <Color x:Key="BorderSoft">#D9D0C1</Color>
+    <Color x:Key="BorderSoft">#C4B9A8</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

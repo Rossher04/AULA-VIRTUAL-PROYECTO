@@ -282,8 +282,8 @@ public static class EntityCatalog
         Endpoint = "horarios/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_horario",
-        DisplayTitle = o => $"Horario #{o.GetStr("id_horario")} - {o.GetStr("dia")}",
-        DisplaySubtitle = o => $"modulo: {o.GetStr("modulo")}  aula: {o.GetStr("aula")}",
+        DisplayTitle = o => $"{o.GetStr("dia")} {o.GetStr("hora_inicio")} - {o.GetStr("hora_fin")}",
+        DisplaySubtitle = o => $"{o.GetStr("modulo_nombre")} - Aula {o.GetStr("aula_nombre")}",
         Fields = new()
         {
             new FieldConfig
@@ -316,8 +316,8 @@ public static class EntityCatalog
         Endpoint = "secciones/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_seccion",
-        DisplayTitle = o => $"Seccion #{o.GetStr("id_seccion")}",
-        DisplaySubtitle = o => $"pensum:{o.GetStr("pensum")}  docente:{o.GetStr("docente")}  horario:{o.GetStr("horario")}",
+        DisplayTitle = o => $"{o.GetStr("curso_nombre")} - {o.GetStr("docente_nombre")}",
+        DisplaySubtitle = o => $"{o.GetStr("carrera_nombre")} Sem {o.GetStr("semestre_numero")} | {o.GetStr("ciclo_nombre")} | {o.GetStr("horario_descripcion")}",
         Fields = new()
         {
             new FieldConfig
@@ -342,7 +342,7 @@ public static class EntityCatalog
             {
                 Key = "horario", Label = "Horario", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "horarios/", ValueField = "id_horario",
-                OptionLabel = o => $"#{o.GetStr("id_horario")} - {o.GetStr("dia")}"
+                OptionLabel = o => $"{o.GetStr("dia")} {o.GetStr("hora_inicio")}-{o.GetStr("hora_fin")} (Aula {o.GetStr("aula_nombre")})"
             },
         }
     };
@@ -353,8 +353,8 @@ public static class EntityCatalog
         Endpoint = "estudiante-secciones/",
         ApiTarget = ApiTarget.Aula,
         IdField = "id_estudiante_seccion",
-        DisplayTitle = o => $"Inscripcion #{o.GetStr("id_estudiante_seccion")}",
-        DisplaySubtitle = o => $"estudiante:{o.GetStr("estudiante")}  seccion:{o.GetStr("seccion")}",
+        DisplayTitle = o => $"{o.GetStr("estudiante_nombre")} ({o.GetStr("estudiante_carne")})",
+        DisplaySubtitle = o => $"{o.GetStr("curso_nombre")} | {o.GetStr("ciclo_nombre")}",
         Fields = new()
         {
             new FieldConfig
@@ -367,7 +367,7 @@ public static class EntityCatalog
             {
                 Key = "seccion", Label = "Seccion (curso asignado a catedratico)", Type = FieldType.Picker,
                 SourceApiTarget = ApiTarget.Aula, SourceEndpoint = "secciones/", ValueField = "id_seccion",
-                OptionLabel = o => $"Seccion #{o.GetStr("id_seccion")}"
+                OptionLabel = o => $"{o.GetStr("curso_nombre")} - {o.GetStr("docente_nombre")} ({o.GetStr("ciclo_nombre")})"
             },
         }
     };
