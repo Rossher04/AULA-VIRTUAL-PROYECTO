@@ -70,12 +70,10 @@ public partial class LoginPage : ContentPage
                 await Navigation.PushAsync(new AdminDashboardPage());
                 break;
             case "DOCENTE":
-                await Navigation.PushAsync(new RoleHomePage("Panel del Docente",
-                    "El rol de docente se implementará en una siguiente fase del proyecto."));
+                await Navigation.PushAsync(new RoleHomePage("Panel del Docente"));
                 break;
             case "ESTUDIANTE":
-                await Navigation.PushAsync(new RoleHomePage("Panel del Estudiante",
-                    "El rol de estudiante se implementará en una siguiente fase del proyecto."));
+                await Navigation.PushAsync(new RoleHomePage("Panel del Estudiante"));
                 break;
             default:
                 ErrorLabel.ShowError($"Rol '{SessionService.Rol}' no reconocido.");
